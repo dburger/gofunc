@@ -23,7 +23,7 @@ func flatmap[T any, U any](slice [][]T, mapper func(T) U) []U {
 	for _, l := range slice {
 		size += len(l)
 	}
-	result := make([]U, len(slice))
+	result := make([]U, size)
 	i := 0
 	for _, l := range slice {
 		for _, v := range l {
@@ -32,4 +32,11 @@ func flatmap[T any, U any](slice [][]T, mapper func(T) U) []U {
 		}
 	}
 	return result
+}
+
+func reduce[T any, U any](slice []T, comb func(a U, b T) U, first U) U {
+	for _, v := range slice {
+		first = comb(first, v)
+	}
+	return first
 }
