@@ -1,4 +1,4 @@
-package functional
+package gofunc
 
 func filter[T any](slice []T, pred func(T) bool) []T {
 	result := make([]T, 0)

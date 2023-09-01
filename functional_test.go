@@ -1,4 +1,4 @@
-package functional
+package gofunc
 
 import (
 	"testing"
