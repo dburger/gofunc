@@ -1,6 +1,6 @@
 package gofunc
 
-func filter[T any](slice []T, pred func(T) bool) []T {
+func Filter[T any](slice []T, pred func(T) bool) []T {
 	result := make([]T, 0)
 	for _, v := range slice {
 		if pred(v) {
@@ -10,7 +10,7 @@ func filter[T any](slice []T, pred func(T) bool) []T {
 	return result
 }
 
-func transform[T any, U any](slice []T, mapper func(T) U) []U {
+func Transform[T any, U any](slice []T, mapper func(T) U) []U {
 	result := make([]U, len(slice))
 	for i, v := range slice {
 		result[i] = mapper(v)
@@ -18,7 +18,7 @@ func transform[T any, U any](slice []T, mapper func(T) U) []U {
 	return result
 }
 
-func flatmap[T any, U any](slice [][]T, mapper func(T) U) []U {
+func FlatMap[T any, U any](slice [][]T, mapper func(T) U) []U {
 	size := 0
 	for _, l := range slice {
 		size += len(l)
@@ -34,7 +34,7 @@ func flatmap[T any, U any](slice [][]T, mapper func(T) U) []U {
 	return result
 }
 
-func reduce[T any, U any](slice []T, comb func(a U, b T) U, first U) U {
+func Reduce[T any, U any](slice []T, comb func(a U, b T) U, first U) U {
 	for _, v := range slice {
 		first = comb(first, v)
 	}
