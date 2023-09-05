@@ -10,7 +10,7 @@ func Filter[T any](slice []T, pred func(T) bool) []T {
 	return result
 }
 
-func Transform[T any, U any](slice []T, mapper func(T) U) []U {
+func Map[T any, U any](slice []T, mapper func(T) U) []U {
 	result := make([]U, len(slice))
 	for i, v := range slice {
 		result[i] = mapper(v)

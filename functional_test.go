@@ -12,9 +12,9 @@ func TestFilter(t *testing.T) {
 	assert.Equal(t, []int{2, 4}, list)
 }
 
-func TestTransform(t *testing.T) {
+func TestMap(t *testing.T) {
 	list := []int{1, 2, 3, 4}
-	list = Transform(list, func(i int) int { return i * 2 })
+	list = Map(list, func(i int) int { return i * 2 })
 	assert.Equal(t, []int{2, 4, 6, 8}, list)
 }
 
